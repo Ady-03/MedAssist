@@ -1,0 +1,83 @@
+# MedAssist Android App Setup Guide
+
+This guide will help you set up and deploy the MedAssist Android app which wraps your existing web application in a WebView.
+
+## What's Included in the MedAssistAndroid.zip
+
+1. MainActivity.java - The main Android activity with WebView configuration
+2. AndroidManifest.xml - App manifest with all required permissions
+3. build.gradle - Build configuration for the Android app
+4. README.md - General information about the app
+
+## Steps to Build and Deploy the Android App
+
+### Step 1: Set Up Android Studio
+1. Download and install Android Studio (https://developer.android.com/studio)
+2. Make sure you have JDK 8 or higher installed
+
+### Step 2: Create a New Android Project
+1. Open Android Studio
+2. Click on "Create New Project"
+3. Select "Empty Activity" template
+4. Configure your project:
+   - Name: MedAssist
+   - Package name: com.medassist.app
+   - Language: Java
+   - Minimum SDK: API 21 (Android 5.0)
+
+### Step 3: Import the Project Files
+1. Extract MedAssistAndroid.zip to a temporary location
+2. Replace the following files in your new Android Studio project:
+   - app/src/main/java/com/medassist/app/MainActivity.java
+   - app/src/main/AndroidManifest.xml
+   - app/build.gradle (merge contents carefully)
+
+### Step 4: Configure the App
+1. Open MainActivity.java
+2. Find the line: webView.loadUrl("https://your-medassist-server.com");
+3. Replace the URL with your deployed MedAssist web application URL
+   - For production: Use your public server URL (e.g., "https://medassist.yourdomain.com")
+   - For testing: You can use a service like ngrok to temporarily expose your local server
+
+### Step 5: Add App Icons
+1. Create app icons using the existing MedAssist logo
+2. In Android Studio, right-click on the res folder
+3. Select "New" -> "Image Asset"
+4. Use the MedAssist logo as the source and generate icons
+
+### Step 6: Build and Test
+1. Connect an Android device to your computer or set up an emulator
+2. Click the "Run" button in Android Studio to build and install the app
+3. Test all functionality:
+   - Camera access for wound images
+   - Microphone for audio input
+   - Location services
+   - File uploads
+
+### Step 7: Deploy the App
+1. In Android Studio, select "Build" -> "Generate Signed Bundle / APK"
+2. Follow the wizard to create a signed APK or App Bundle
+3. Distribute the APK to your users or upload to Google Play Store
+
+## Important Notes
+
+1. Ensure your web application is fully responsive and works well on mobile screens
+2. Test all device features (camera, microphone, location) thoroughly in the WebView context
+3. For file uploads to work properly, make sure your web application handles file input correctly
+4. If your web app uses location services, ensure it requests permissions appropriately
+5. For security, use HTTPS for your production server URL
+
+## Troubleshooting Common Issues
+
+1. Camera not working: Ensure the app has camera permissions and your web app correctly handles the camera API
+2. File uploads failing: Check the WebView configuration and ensure file input elements work correctly
+3. Location not working: Make sure location permissions are granted and your web app uses the Geolocation API properly
+4. App crashes on launch: Verify the server URL is correct and accessible
+5. WebView not rendering correctly: Ensure your web app is responsive and designed for mobile screens
+
+## Updating the App
+
+- When you update your web application, the Android app will automatically load the new version
+- If you need to change the Android app itself (e.g., permissions, WebView settings), you'll need to release a new version
+
+For any issues or questions, refer to the Android WebView documentation or contact the MedAssist development team.
