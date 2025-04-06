@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MedAssist First Aid Application
 
 ## How to Start the Application
@@ -49,3 +50,6 @@
 
 ## Support
 For support, contact the MedAssist team.
+=======
+# MedAssist
+>>>>>>> ef9cc7d992034b4641cfb12e8b7f1908a4aa4b4c
